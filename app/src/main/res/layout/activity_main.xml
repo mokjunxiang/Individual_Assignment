@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/etTotalBill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:hint="Total Bill Amount"
+                android:inputType="numberDecimal"
+                android:minHeight="48dp"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/etNumPeople"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etTotalBill"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:hint="Number of People"
+                android:textColorHint="#FFFFFF"
+                android:textColor="#FFFFFF"
+                android:inputType="number"
+                android:minHeight="48dp"
+                tools:ignore="HardcodedText" />
+
+            <RadioGroup
+                android:id="@+id/rgMethod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etNumPeople"
+                android:layout_marginTop="16dp">
+
+                <RadioButton
+                    android:id="@+id/rbEqual"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="Equal BreakDown"
+                    android:textColor="@color/white"
+                    tools:ignore="HardcodedText" />
+
+                <RadioButton
+                    android:id="@+id/rbCustom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="Custom BreakDown"
+                    android:textColor="@color/white"
+                    tools:ignore="HardcodedText" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/customOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rgMethod"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <RadioGroup
+                    android:id="@+id/rgCustomOptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rbIndividual"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Individual Amounts"
+                        android:textColor="@color/white"
+                        tools:ignore="HardcodedText" />
+
+                    <RadioButton
+                        android:id="@+id/rbPercentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Percentages"
+                        android:textColor="@color/white"
+                        tools:ignore="HardcodedText" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/etIndividualAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:hint="Individual Amounts (Comma separated)"
+                    android:inputType="text"
+                    android:textColorHint="#FFFFFF"
+                    android:textColor="#FFFFFF"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/etPercentage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:hint="Individual Percentages (Comma separated)"
+                    android:inputType="text"
+                    android:textColorHint="#FFFFFF"
+                    android:textColor="#FFFFFF"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnCalculate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/customOptions"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:text="Calculate"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/btnStore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnCalculate"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:text="Store Results"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/btnShowResults"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnStore"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:text="Show Stored Results"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/btnShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnShowResults"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:text="Share Results"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/tvIndividualAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnShare"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:text="Individual Amounts:"
+                android:textColor="#FFFFFF"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/tvPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvIndividualAmount"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="Percentages:"
+                android:textColor="#FFFFFF"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvPercentage"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:text="Result:"
+                android:textColor="#FFFFFF"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>
